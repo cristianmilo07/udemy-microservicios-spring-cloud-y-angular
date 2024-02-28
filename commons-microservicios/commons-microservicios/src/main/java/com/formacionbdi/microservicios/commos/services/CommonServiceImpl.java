@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+
 public class CommonServiceImpl<E, R extends CrudRepository<E, Long>> implements CommonService<E> {
 
     @Autowired
