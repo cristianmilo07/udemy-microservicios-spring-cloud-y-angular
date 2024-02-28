@@ -1,2 +1,3 @@
-com\formacionbdi\microservicios\commos\services\CommonService.class
-com\formacionbdi\microservicios\commos\services\CommonServiceImpl.class
+com\formacionbdi\microservicios\commons\CommonsMicroserviciosApplication.class
+com\formacionbdi\microservicios\commons\services\CommonService.class
+com\formacionbdi\microservicios\commons\services\CommonServiceImpl.class
