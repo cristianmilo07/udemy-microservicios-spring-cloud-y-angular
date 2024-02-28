@@ -1,0 +1,5 @@
+# Created at 2024-02-28T09:28:34.587
+Boot Manifest-JAR contains absolute paths in classpath 'D:\Todo orientado a objetos\desarrollo-backend-java\udemy-microservicios-spring-cloud-y-angular\commons-microservicios\commons-microservicios\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
