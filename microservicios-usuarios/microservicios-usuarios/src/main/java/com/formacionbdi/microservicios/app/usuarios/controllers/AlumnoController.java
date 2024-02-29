@@ -2,8 +2,6 @@ package com.formacionbdi.microservicios.app.usuarios.controllers;
 
 import com.formacionbdi.microservicios.app.usuarios.models.entity.Alumno;
 import com.formacionbdi.microservicios.app.usuarios.services.AlumnoService;
-import org.apache.coyote.Response;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,30 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-public class AlumnoController {
-
-    @Autowired
-    private AlumnoService service;
-
-    @GetMapping
-    public ResponseEntity<?> listar(){
-        return ResponseEntity.ok().body(service.findAll());
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<?> ver(@PathVariable Long id){
-        Optional<Alumno> o = service.findById(id);
-        if(o.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(o.get());
-    }
-
-    @PostMapping
-    public ResponseEntity<?> crear(@RequestBody Alumno alumno){
-        Alumno alumnoDb = service.save(alumno);
-        return ResponseEntity.status(HttpStatus.CREATED).body(alumnoDb);
-    }
+public class AlumnoController extends CommonController<Alumno, AlumnoService >
+{
 
     @PutMapping("/{id}")
     public ResponseEntity<?> editar(@RequestBody Alumno alumno, @PathVariable Long id ){
@@ -50,9 +26,4 @@ public class AlumnoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(alumnoDb));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id){
-        service.deleteById(id);
-        return ResponseEntity.noContent().build();
-    }
 }
